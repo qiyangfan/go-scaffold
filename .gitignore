@@ -1,0 +1,8 @@
+bin/
+coverage.out
+coverage.html
+.env
+.env.*
+!.env.example
+.DS_Store
+sbom.cdx.json

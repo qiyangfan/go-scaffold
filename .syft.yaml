@@ -1,0 +1,6 @@
+# syft 配置：SBOM 只反映交付物，不扫本地构建缓存
+exclude:
+  - ./.git/**
+  - ./bin/**
+  - ./coverage.out
+  - ./coverage.html

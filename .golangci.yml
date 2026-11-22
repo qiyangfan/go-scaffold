@@ -1,0 +1,38 @@
+version: "2"
+
+linters:
+  default: standard
+  enable:
+    - misspell
+    - revive
+    - unconvert
+    - funlen
+    - cyclop
+    - gocognit
+    - nestif
+    - maintidx
+    - lll
+    - dupl
+    - gosec
+    - errorlint
+    - bodyclose
+    - contextcheck
+    - nilerr
+    - noctx
+    - depguard
+  settings:
+    revive:
+      severity: warning
+      rules:
+        - name: exported
+    depguard:
+      rules:
+        internal-no-cmd:
+          files: ["**/internal/**"]
+          deny:
+            - pkg: "github.com/solvela/go-scaffold/cmd"
+              desc: "cmd 是装配入口，internal 不得反向依赖"
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters: [funlen, cyclop, gocognit, nestif, maintidx, lll, dupl, gosec, depguard]
